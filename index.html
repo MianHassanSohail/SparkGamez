@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Forge Games - Crafting Worlds, Building Legacies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'quantum-blue': '#00f5ff',
+                        'quantum-purple': '#8b5cf6',
+                        'quantum-pink': '#ec4899',
+                        'dark-bg': '#0a0a0a',
+                        'dark-surface': '#1a1a1a',
+                        'dark-surface-2': '#2a2a2a'
+                    },
+                    animation: {
+                        'glow-pulse': 'glow-pulse 2s ease-in-out infinite alternate',
+                        'float': 'float 3s ease-in-out infinite',
+                        'slide-in': 'slide-in 0.6s ease-out'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-bg text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-bg/90 backdrop-blur-md border-b border-quantum-blue/20 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold glow-text" data-text="Quantum Forge">
+                    Quantum Forge
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link" data-section="home">Home</a>
+                    <a href="#about" class="nav-link" data-section="about">About Us</a>
+                    <a href="#games" class="nav-link" data-section="games">Games</a>
+                    <a href="#careers" class="nav-link" data-section="careers">Careers</a>
+                    <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-quantum-blue" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="hidden md:hidden mt-4 pb-4" id="mobile-menu">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="nav-link" data-section="home">Home</a>
+                    <a href="#about" class="nav-link" data-section="about">About Us</a>
+                    <a href="#games" class="nav-link" data-section="games">Games</a>
+                    <a href="#careers" class="nav-link" data-section="careers">Careers</a>
+                    <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-quantum-purple/20 via-dark-bg to-quantum-blue/20"></div>
+        <div class="absolute inset-0 bg-circuit-pattern opacity-10"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="animate-slide-in">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 glow-text-hero" data-text="Crafting Worlds">
+                    Crafting Worlds,<br>
+                    <span class="text-quantum-blue">Building Legacies</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
+                    Where cutting-edge technology meets limitless imagination to create immersive gaming experiences
+                </p>
+                <button class="glow-button text-lg px-8 py-4" onclick="scrollToSection('games')">
+                    <i class="fas fa-gamepad mr-2"></i>
+                    Explore Our Games
+                </button>
+            </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 w-4 h-4 bg-quantum-blue rounded-full animate-float opacity-60"></div>
+        <div class="absolute top-40 right-20 w-6 h-6 bg-quantum-purple rounded-full animate-float opacity-40" style="animation-delay: 1s"></div>
+        <div class="absolute bottom-40 left-20 w-3 h-3 bg-quantum-pink rounded-full animate-float opacity-50" style="animation-delay: 2s"></div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 glow-text" data-text="About Us">About Us</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    We are passionate game developers pushing the boundaries of interactive entertainment
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-20">
+                <div class="space-y-8">
+                    <div class="glass-card p-8">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-bullseye text-quantum-blue text-3xl mr-4"></i>
+                            <h3 class="text-2xl font-bold">Our Mission</h3>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed">
+                            To create extraordinary gaming experiences that transport players to new worlds, 
+                            challenge their minds, and forge lasting memories through innovative technology 
+                            and compelling storytelling.
+                        </p>
+                    </div>
+
+                    <div class="glass-card p-8">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-heart text-quantum-pink text-3xl mr-4"></i>
+                            <h3 class="text-2xl font-bold">Our Values</h3>
+                        </div>
+                        <ul class="text-gray-300 space-y-2">
+                            <li class="flex items-center"><i class="fas fa-check text-quantum-blue mr-2"></i> Innovation & Creativity</li>
+                            <li class="flex items-center"><i class="fas fa-check text-quantum-blue mr-2"></i> Player-Centric Design</li>
+                            <li class="flex items-center"><i class="fas fa-check text-quantum-blue mr-2"></i> Technical Excellence</li>
+                            <li class="flex items-center"><i class="fas fa-check text-quantum-blue mr-2"></i> Collaborative Spirit</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-history text-quantum-purple text-3xl mr-4"></i>
+                        <h3 class="text-2xl font-bold">Our Story</h3>
+                    </div>
+                    <div class="text-gray-300 leading-relaxed space-y-4">
+                        <p>
+                            Founded in 2018 by a team of passionate developers and artists, Quantum Forge Games 
+                            emerged from a shared vision to revolutionize the gaming industry through cutting-edge 
+                            technology and immersive storytelling.
+                        </p>
+                        <p>
+                            From our humble beginnings as an indie studio to becoming a recognized force in the 
+                            gaming world, we've consistently pushed the envelope in game design, graphics, and 
+                            player experience across multiple platforms.
+                        </p>
+                        <p>
+                            Today, we continue to explore new frontiers in gaming, from virtual reality experiences 
+                            to innovative web-based games that reach players worldwide.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold mb-6 glow-text" data-text="Our Team">Our Team</h3>
+                <p class="text-xl text-gray-300">Meet the minds behind the magic</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="team-card">
+                    <div class="relative overflow-hidden rounded-lg mb-4 aspect-square">
+                        <img src="https://pixabay.com/get/gc90a0b6184fda3f8b68b6daa8fed8654db93a432a9711fa5ba5582bde87788c830851fe1f9454fcfa0b7bbaa07ab8514a96ad8ed2c4b297e4823f357ae9c1204_1280.jpg" 
+                             alt="Team Member" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Alex Chen</h4>
+                    <p class="text-quantum-blue mb-2">Creative Director</p>
+                    <p class="text-gray-400 text-sm">Visionary leader with 15+ years in game design and creative direction</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="relative overflow-hidden rounded-lg mb-4 aspect-square">
+                        <img src="https://pixabay.com/get/gb0a5d5684e3f1e809f88258e802eabbbe2fc4c5fa716bc15e0e5d69b8a46471773fd649715dbaee8b593f50efe45bb022146031abc615faa9341b4dcf803b7ef_1280.jpg" 
+                             alt="Team Member" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Sarah Rodriguez</h4>
+                    <p class="text-quantum-purple mb-2">Lead Developer</p>
+                    <p class="text-gray-400 text-sm">Full-stack developer specializing in game engines and performance optimization</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="relative overflow-hidden rounded-lg mb-4 aspect-square">
+                        <img src="https://pixabay.com/get/g992fabe624b0418eb7c88c0a48b42b57c479e06c3958cac872bf09b45df10041999d3063ec5b7fb321bf9a7704808ef3742752561353c6cff6af82934652da2e_1280.jpg" 
+                             alt="Team Member" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Marcus Johnson</h4>
+                    <p class="text-quantum-pink mb-2">Art Director</p>
+                    <p class="text-gray-400 text-sm">Master of visual storytelling with expertise in 3D modeling and animation</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="relative overflow-hidden rounded-lg mb-4 aspect-square">
+                        <img src="https://pixabay.com/get/g725a76dd8048805e82ae9da6db27094ed1b4989c7489c8aa44331026153b973011282fc2cd88dcdc9aa1c229c0c70ff8516425ba9ca46f7faee6185d66060158_1280.jpg" 
+                             alt="Team Member" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Emily Park</h4>
+                    <p class="text-quantum-blue mb-2">UX Designer</p>
+                    <p class="text-gray-400 text-sm">User experience specialist focused on creating intuitive and engaging interfaces</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Showcase Section -->
+    <section id="games" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 glow-text" data-text="Our Games">Our Games</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Discover our portfolio of innovative games across multiple platforms
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Mobile Game Card -->
+                <div class="game-card mobile-card" data-category="mobile">
+                    <div class="game-card-header">
+                        <i class="fas fa-mobile-alt text-3xl text-quantum-blue mb-4"></i>
+                        <span class="game-badge mobile-badge">Mobile</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Cosmic Runner</h3>
+                    <p class="text-gray-300 mb-6 text-sm leading-relaxed">
+                        An endless runner through cosmic landscapes with stunning visuals and addictive gameplay mechanics.
+                    </p>
+                    <div class="game-stats mb-6">
+                        <div class="flex justify-between text-sm text-gray-400">
+                            <span><i class="fas fa-download mr-1"></i>2M+ Downloads</span>
+                            <span><i class="fas fa-star mr-1"></i>4.8 Rating</span>
+                        </div>
+                    </div>
+                    <button class="glow-button w-full">
+                        <i class="fas fa-info-circle mr-2"></i>Learn More
+                    </button>
+                </div>
+
+                <!-- PC Game Card -->
+                <div class="game-card pc-card" data-category="pc">
+                    <div class="game-card-header">
+                        <i class="fas fa-desktop text-3xl text-quantum-purple mb-4"></i>
+                        <span class="game-badge pc-badge">PC</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Quantum Realms</h3>
+                    <p class="text-gray-300 mb-6 text-sm leading-relaxed">
+                        A massive multiplayer RPG set in parallel dimensions with cutting-edge graphics and deep storylines.
+                    </p>
+                    <div class="game-stats mb-6">
+                        <div class="flex justify-between text-sm text-gray-400">
+                            <span><i class="fas fa-users mr-1"></i>500K+ Players</span>
+                            <span><i class="fas fa-trophy mr-1"></i>Game Awards</span>
+                        </div>
+                    </div>
+                    <button class="glow-button w-full">
+                        <i class="fas fa-info-circle mr-2"></i>Learn More
+                    </button>
+                </div>
+
+                <!-- VR Game Card -->
+                <div class="game-card vr-card" data-category="vr">
+                    <div class="game-card-header">
+                        <i class="fas fa-vr-cardboard text-3xl text-quantum-pink mb-4"></i>
+                        <span class="game-badge vr-badge">VR</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Neural Nexus</h3>
+                    <p class="text-gray-300 mb-6 text-sm leading-relaxed">
+                        Immersive virtual reality experience that blurs the line between digital and physical worlds.
+                    </p>
+                    <div class="game-stats mb-6">
+                        <div class="flex justify-between text-sm text-gray-400">
+                            <span><i class="fas fa-eye mr-1"></i>Next-Gen VR</span>
+                            <span><i class="fas fa-brain mr-1"></i>AI-Powered</span>
+                        </div>
+                    </div>
+                    <button class="glow-button w-full">
+                        <i class="fas fa-info-circle mr-2"></i>Learn More
+                    </button>
+                </div>
+
+                <!-- WebGL Game Card -->
+                <div class="game-card webgl-card" data-category="web">
+                    <div class="game-card-header">
+                        <i class="fas fa-globe text-3xl text-cyan-400 mb-4"></i>
+                        <span class="game-badge webgl-badge">WebGL</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Stellar Conquest</h3>
+                    <p class="text-gray-300 mb-6 text-sm leading-relaxed">
+                        Browser-based strategy game with console-quality graphics powered by advanced WebGL technology.
+                    </p>
+                    <div class="game-stats mb-6">
+                        <div class="flex justify-between text-sm text-gray-400">
+                            <span><i class="fas fa-play mr-1"></i>Play Instantly</span>
+                            <span><i class="fas fa-rocket mr-1"></i>Web3 Ready</span>
+                        </div>
+                    </div>
+                    <button class="glow-button w-full">
+                        <i class="fas fa-info-circle mr-2"></i>Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers Section -->
+    <section id="careers" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 glow-text" data-text="Careers">Join Our Team</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Be part of the next generation of game development
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="career-card">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Senior Game Developer</h3>
+                            <p class="text-quantum-blue text-sm">Full-time • Remote</p>
+                        </div>
+                        <i class="fas fa-code text-2xl text-quantum-blue"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-6">
+                        Join our core development team to create next-generation gaming experiences using cutting-edge 
+                        technologies including Unity, Unreal Engine, and custom game engines.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="skill-tag">Unity</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">3D Graphics</span>
+                    </div>
+                    <button class="glow-button w-full">
+                        <i class="fas fa-paper-plane mr-2"></i>Apply Now
+                    </button>
+                </div>
+
+                <div class="career-card">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">3D Artist</h3>
+                            <p class="text-quantum-purple text-sm">Full-time • On-site</p>
+                        </div>
+                        <i class="fas fa-cube text-2xl text-quantum-purple"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-6">
+                        Create stunning 3D models, textures, and animations that bring our game worlds to life. 
+                        Work closely with our design team to establish visual standards.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="skill-tag">Blender</span>
+                        <span class="skill-tag">Maya</span>
+                        <span class="skill-tag">Substance</span>
+                    </div>
+                    <button class="glow-button w-full">
+                        <i class="fas fa-paper-plane mr-2"></i>Apply Now
+                    </button>
+                </div>
+
+                <div class="career-card">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">UI/UX Designer</h3>
+                            <p class="text-quantum-pink text-sm">Contract • Remote</p>
+                        </div>
+                        <i class="fas fa-palette text-2xl text-quantum-pink"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-6">
+                        Design intuitive and beautiful user interfaces for our games across multiple platforms. 
+                        Focus on creating seamless player experiences.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">UI Design</span>
+                        <span class="skill-tag">Prototyping</span>
+                    </div>
+                    <button class="glow-button w-full">
+                        <i class="fas fa-paper-plane mr-2"></i>Apply Now
+                    </button>
+                </div>
+
+                <div class="career-card">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Game Designer</h3>
+                            <p class="text-cyan-400 text-sm">Full-time • Hybrid</p>
+                        </div>
+                        <i class="fas fa-gamepad text-2xl text-cyan-400"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-6">
+                        Shape the core gameplay mechanics and player progression systems. Work on balancing, 
+                        level design, and creating engaging player experiences.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="skill-tag">Game Balance</span>
+                        <span class="skill-tag">Level Design</span>
+                        <span class="skill-tag">Analytics</span>
+                    </div>
+                    <button class="glow-button w-full">
+                        <i class="fas fa-paper-plane mr-2"></i>Apply Now
+                    </button>
+                </div>
+
+                <div class="career-card">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">VR Developer</h3>
+                            <p class="text-quantum-blue text-sm">Full-time • Remote</p>
+                        </div>
+                        <i class="fas fa-vr-cardboard text-2xl text-quantum-blue"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-6">
+                        Pioneer the future of virtual reality gaming. Develop immersive VR experiences using 
+                        the latest VR technologies and hardware platforms.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="skill-tag">VR SDKs</span>
+                        <span class="skill-tag">OpenXR</span>
+                        <span class="skill-tag">Optimization</span>
+                    </div>
+                    <button class="glow-button w-full">
+                        <i class="fas fa-paper-plane mr-2"></i>Apply Now
+                    </button>
+                </div>
+
+                <div class="career-card">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">QA Engineer</h3>
+                            <p class="text-quantum-purple text-sm">Full-time • On-site</p>
+                        </div>
+                        <i class="fas fa-bug text-2xl text-quantum-purple"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-6">
+                        Ensure our games meet the highest quality standards. Create test plans, identify bugs, 
+                        and work closely with development teams to deliver polished experiences.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="skill-tag">Testing</span>
+                        <span class="skill-tag">Automation</span>
+                        <span class="skill-tag">Bug Tracking</span>
+                    </div>
+                    <button class="glow-button w-full">
+                        <i class="fas fa-paper-plane mr-2"></i>Apply Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 glow-text" data-text="Contact">Get In Touch</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Ready to collaborate or have a question? We'd love to hear from you.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="glass-card p-8">
+                        <h3 class="text-2xl font-bold mb-6">Send us a message</h3>
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-gray-300">Name *</label>
+                                <input type="text" 
+                                       id="name" 
+                                       required
+                                       class="form-input w-full px-4 py-3 bg-dark-surface border border-gray-600 rounded-lg focus:border-quantum-blue focus:outline-none transition-colors duration-300"
+                                       placeholder="Your full name">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-gray-300">Email *</label>
+                                <input type="email" 
+                                       id="email" 
+                                       required
+                                       class="form-input w-full px-4 py-3 bg-dark-surface border border-gray-600 rounded-lg focus:border-quantum-blue focus:outline-none transition-colors duration-300"
+                                       placeholder="your@email.com">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-gray-300">Subject</label>
+                                <select id="subject" 
+                                        class="form-input w-full px-4 py-3 bg-dark-surface border border-gray-600 rounded-lg focus:border-quantum-blue focus:outline-none transition-colors duration-300">
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="partnership">Partnership</option>
+                                    <option value="career">Career Opportunities</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="press">Press & Media</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-gray-300">Message *</label>
+                                <textarea id="message" 
+                                          rows="5" 
+                                          required
+                                          class="form-input w-full px-4 py-3 bg-dark-surface border border-gray-600 rounded-lg focus:border-quantum-blue focus:outline-none transition-colors duration-300 resize-none"
+                                          placeholder="Tell us about your project or inquiry..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="glow-button w-full">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="space-y-8">
+                        <div class="glass-card p-8">
+                            <h3 class="text-2xl font-bold mb-6">Let's Connect</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-quantum-blue/20 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-envelope text-quantum-blue text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-400">Email us at</p>
+                                        <p class="text-white">contact@quantumforgegames.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-quantum-purple/20 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-phone text-quantum-purple text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-400">Call us at</p>
+                                        <p class="text-white">+1 (555) 123-GAME</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-quantum-pink/20 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-map-marker-alt text-quantum-pink text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-400">Visit our studio</p>
+                                        <p class="text-white">123 Innovation Drive<br>Tech City, TC 12345</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-8">
+                            <h4 class="text-xl font-bold mb-4">Business Hours</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Monday - Friday</span>
+                                    <span>9:00 AM - 6:00 PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Saturday</span>
+                                    <span>10:00 AM - 4:00 PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Sunday</span>
+                                    <span>Closed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-surface border-t border-quantum-blue/20 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="text-2xl font-bold glow-text mb-4" data-text="Quantum Forge">
+                        Quantum Forge Games
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Crafting worlds and building legacies through innovative game development 
+                        and cutting-edge technology.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitch"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-quantum-blue">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="footer-link">About Us</a></li>
+                        <li><a href="#games" class="footer-link">Our Games</a></li>
+                        <li><a href="#careers" class="footer-link">Careers</a></li>
+                        <li><a href="#contact" class="footer-link">Contact</a></li>
+                        <li><a href="#" class="footer-link">Press Kit</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-quantum-purple">Support</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="footer-link">Help Center</a></li>
+                        <li><a href="#" class="footer-link">Bug Reports</a></li>
+                        <li><a href="#" class="footer-link">Community</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    © 2025 Quantum Forge Games. All rights reserved. 
+                    Crafted with <i class="fas fa-heart text-quantum-pink mx-1"></i> for gamers worldwide.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
