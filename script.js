@@ -18,6 +18,7 @@ function initializeApp() {
     initializeContactForm();
     initializeMobileMenu();
     initializeScrollIndicator();
+    initializeForms();
     
     // Add loading complete class
     document.body.classList.add('loaded');
@@ -521,11 +522,166 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// New form handling functionality
+function initializeForms() {
+    // Add form listeners if forms exist
+    const contactForm = document.getElementById('contactForm');
+    const applicationForm = document.getElementById('applicationForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleContactSubmit);
+    }
+    
+    if (applicationForm) {
+        applicationForm.addEventListener('submit', handleApplicationSubmit);
+    }
+}
+
+// Contact form handler
+function handleContactSubmit(event) {
+    event.preventDefault();
+    
+    const submitBtn = document.getElementById('contactSubmitBtn');
+    const messageDiv = document.getElementById('contactFormMessage');
+    const form = event.target;
+    
+    // Show loading state
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+    submitBtn.disabled = true;
+    
+    // Get form data
+    const formData = new FormData(form);
+    const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        subject: formData.get('subject'),
+        message: formData.get('message')
+    };
+    
+    // Simulate form submission (replace with actual endpoint)
+    setTimeout(() => {
+        // Success simulation
+        messageDiv.className = 'text-center py-4 text-spark-cyan';
+        messageDiv.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Message sent successfully! We\'ll get back to you soon.';
+        messageDiv.classList.remove('hidden');
+        
+        // Reset form
+        form.reset();
+        
+        // Reset button
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
+        submitBtn.disabled = false;
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            messageDiv.classList.add('hidden');
+        }, 5000);
+        
+        // Log to console for now (replace with actual backend integration)
+        console.log('Contact form submitted:', data);
+        
+    }, 2000);
+}
+
+// Application modal functions
+function openApplicationModal(position) {
+    const modal = document.getElementById('applicationModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const positionInput = document.getElementById('applicationPosition');
+    
+    modalTitle.textContent = `Apply for ${position}`;
+    positionInput.value = position;
+    
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeApplicationModal() {
+    const modal = document.getElementById('applicationModal');
+    const form = document.getElementById('applicationForm');
+    const messageDiv = document.getElementById('applicationFormMessage');
+    
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+    
+    // Reset form and message
+    form.reset();
+    messageDiv.classList.add('hidden');
+}
+
+// Application form handler
+function handleApplicationSubmit(event) {
+    event.preventDefault();
+    
+    const submitBtn = document.getElementById('applicationSubmitBtn');
+    const messageDiv = document.getElementById('applicationFormMessage');
+    const form = event.target;
+    
+    // Show loading state
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
+    submitBtn.disabled = true;
+    
+    // Get form data
+    const formData = new FormData(form);
+    const data = {
+        position: formData.get('position'),
+        firstName: formData.get('firstName'),
+        lastName: formData.get('lastName'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        portfolio: formData.get('portfolio'),
+        experience: formData.get('experience'),
+        coverLetter: formData.get('coverLetter'),
+        resume: formData.get('resume')
+    };
+    
+    // Simulate form submission (replace with actual endpoint)
+    setTimeout(() => {
+        // Success simulation
+        messageDiv.className = 'text-center py-4 text-spark-cyan';
+        messageDiv.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Application submitted successfully! We\'ll review your application and get back to you soon.';
+        messageDiv.classList.remove('hidden');
+        
+        // Reset button
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Submit Application';
+        submitBtn.disabled = false;
+        
+        // Close modal after 3 seconds
+        setTimeout(() => {
+            closeApplicationModal();
+        }, 3000);
+        
+        // Log to console for now (replace with actual backend integration)
+        console.log('Application submitted:', data);
+        
+    }, 2000);
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('applicationModal');
+    if (event.target === modal) {
+        closeApplicationModal();
+    }
+});
+
+// Close modal with escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const modal = document.getElementById('applicationModal');
+        if (!modal.classList.contains('hidden')) {
+            closeApplicationModal();
+        }
+    }
+});
+
 // Export functions for external use if needed
 window.SparkGames = {
     scrollToSection,
     showNotification,
-    toggleMobileMenu
+    toggleMobileMenu,
+    openApplicationModal,
+    closeApplicationModal
 };
 
 console.log('⚡ Spark Games - Ready to ignite gaming adventures!');
