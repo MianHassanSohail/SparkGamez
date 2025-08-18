@@ -540,16 +540,14 @@ function initializeForms() {
 // Contact form handler
 function handleContactSubmit(event) {
     event.preventDefault();
-    
+
     const submitBtn = document.getElementById('contactSubmitBtn');
     const messageDiv = document.getElementById('contactFormMessage');
     const form = event.target;
-    
-    // Show loading state
+
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
     submitBtn.disabled = true;
-    
-    // Get form data
+
     const formData = new FormData(form);
     const data = {
         name: formData.get('name'),
@@ -557,31 +555,33 @@ function handleContactSubmit(event) {
         subject: formData.get('subject'),
         message: formData.get('message')
     };
-    
-    // Simulate form submission (replace with actual endpoint)
-    setTimeout(() => {
-        // Success simulation
+
+    // Example using EmailJS (client-side)
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+        from_name: data.name,
+        from_email: data.email,
+        subject: data.subject,
+        message: data.message,
+        to_email: 'sparkgamezstudio@gmail.com'
+    }).then(() => {
         messageDiv.className = 'text-center py-4 text-spark-cyan';
         messageDiv.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Message sent successfully! We\'ll get back to you soon.';
         messageDiv.classList.remove('hidden');
-        
-        // Reset form
         form.reset();
-        
-        // Reset button
         submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
         submitBtn.disabled = false;
-        
-        // Hide message after 5 seconds
         setTimeout(() => {
             messageDiv.classList.add('hidden');
         }, 5000);
-        
-        // Log to console for now (replace with actual backend integration)
-        console.log('Contact form submitted:', data);
-        
-    }, 2000);
+    }, (error) => {
+        messageDiv.className = 'text-center py-4 text-red-500';
+        messageDiv.innerHTML = '<i class="fas fa-times-circle mr-2"></i>Failed to send message. Please try again later.';
+        messageDiv.classList.remove('hidden');
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
+        submitBtn.disabled = false;
+    });
 }
+
 
 // Application modal functions
 function openApplicationModal(position) {
@@ -612,16 +612,14 @@ function closeApplicationModal() {
 // Application form handler
 function handleApplicationSubmit(event) {
     event.preventDefault();
-    
+
     const submitBtn = document.getElementById('applicationSubmitBtn');
     const messageDiv = document.getElementById('applicationFormMessage');
     const form = event.target;
-    
-    // Show loading state
+
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
     submitBtn.disabled = true;
-    
-    // Get form data
+
     const formData = new FormData(form);
     const data = {
         position: formData.get('position'),
@@ -634,28 +632,37 @@ function handleApplicationSubmit(event) {
         coverLetter: formData.get('coverLetter'),
         resume: formData.get('resume')
     };
-    
-    // Simulate form submission (replace with actual endpoint)
-    setTimeout(() => {
-        // Success simulation
+
+    // Example using EmailJS (client-side)
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+        position: data.position,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phone: data.phone,
+        portfolio: data.portfolio,
+        experience: data.experience,
+        coverLetter: data.coverLetter,
+        // You may need to handle file uploads differently
+        to_email: 'hr.sparkgames@gmail.com'
+    }).then(() => {
         messageDiv.className = 'text-center py-4 text-spark-cyan';
         messageDiv.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Application submitted successfully! We\'ll review your application and get back to you soon.';
         messageDiv.classList.remove('hidden');
-        
-        // Reset button
         submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Submit Application';
         submitBtn.disabled = false;
-        
-        // Close modal after 3 seconds
         setTimeout(() => {
             closeApplicationModal();
         }, 3000);
-        
-        // Log to console for now (replace with actual backend integration)
-        console.log('Application submitted:', data);
-        
-    }, 2000);
+    }, (error) => {
+        messageDiv.className = 'text-center py-4 text-red-500';
+        messageDiv.innerHTML = '<i class="fas fa-times-circle mr-2"></i>Failed to submit application. Please try again later.';
+        messageDiv.classList.remove('hidden');
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Submit Application';
+        submitBtn.disabled = false;
+    });
 }
+
 
 // Close modal when clicking outside
 document.addEventListener('click', function(event) {
