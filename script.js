@@ -556,8 +556,8 @@ function handleContactSubmit(event) {
         message: formData.get('message')
     };
 
-    // Example using EmailJS (client-side)
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+    // Send using EmailJS
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_CONTACT_TEMPLATE_ID', {
         from_name: data.name,
         from_email: data.email,
         subject: data.subject,
@@ -581,6 +581,7 @@ function handleContactSubmit(event) {
         submitBtn.disabled = false;
     });
 }
+
 
 
 // Application modal functions
@@ -621,7 +622,8 @@ function handleApplicationSubmit(event) {
     submitBtn.disabled = true;
 
     const formData = new FormData(form);
-    const data = {
+
+    const emailParams = {
         position: formData.get('position'),
         firstName: formData.get('firstName'),
         lastName: formData.get('lastName'),
@@ -629,21 +631,25 @@ function handleApplicationSubmit(event) {
         phone: formData.get('phone'),
         portfolio: formData.get('portfolio'),
         experience: formData.get('experience'),
-        coverLetter: formData.get('coverLetter'),
-        resume: formData.get('resume')
+        coverLetter: formData.get('coverLetter')
     };
 
-    // Example using EmailJS (client-side)
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
-        position: data.position,
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        phone: data.phone,
-        portfolio: data.portfolio,
-        experience: data.experience,
-        coverLetter: data.coverLetter,
-        // You may need to handle file uploads differently
+    const resumeFile = formData.get('resume');
+    if (resumeFile) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            emailParams.resume_base64 = e.target.result.split(',')[1];
+            sendApplicationEmail(emailParams, submitBtn, messageDiv, form);
+        };
+        reader.readAsDataURL(resumeFile);
+    } else {
+        sendApplicationEmail(emailParams, submitBtn, messageDiv, form);
+    }
+}
+
+function sendApplicationEmail(emailParams, submitBtn, messageDiv, form) {
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_APPLICATION_TEMPLATE_ID', {
+        ...emailParams,
         to_email: 'hr.sparkgames@gmail.com'
     }).then(() => {
         messageDiv.className = 'text-center py-4 text-spark-cyan';
@@ -662,6 +668,7 @@ function handleApplicationSubmit(event) {
         submitBtn.disabled = false;
     });
 }
+
 
 
 // Close modal when clicking outside
