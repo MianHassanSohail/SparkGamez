@@ -22,7 +22,7 @@ function initializeApp() {
     // Add loading complete class
     document.body.classList.add('loaded');
     
-    console.log('Quantum Forge Games website initialized');
+    console.log('Spark Games website initialized');
 }
 
 // Navigation functionality
@@ -506,7 +506,7 @@ style.textContent = `
     .ripple {
         position: absolute;
         border-radius: 50%;
-        background: rgba(0, 245, 255, 0.3);
+        background: rgba(255, 215, 0, 0.3);
         transform: scale(0);
         animation: ripple-animation 0.6s linear;
         pointer-events: none;
@@ -522,10 +522,10 @@ style.textContent = `
 document.head.appendChild(style);
 
 // Export functions for external use if needed
-window.QuantumForgeGames = {
+window.SparkGames = {
     scrollToSection,
     showNotification,
     toggleMobileMenu
 };
 
-console.log('🚀 Quantum Forge Games - Ready to craft worlds and build legacies!');
+console.log('⚡ Spark Games - Ready to ignite gaming adventures!');

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Forge Games - Crafting Worlds, Building Legacies</title>
+    <title>Spark Games - Igniting Gaming Adventures</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -12,9 +12,11 @@
             theme: {
                 extend: {
                     colors: {
-                        'quantum-blue': '#00f5ff',
-                        'quantum-purple': '#8b5cf6',
-                        'quantum-pink': '#ec4899',
+                        'spark-yellow': '#FFD700',
+                        'spark-orange': '#FF8C00',
+                        'spark-cyan': '#00CED1',
+                        'spark-teal': '#20B2AA',
+                        'spark-purple': '#6A0DAD',
                         'dark-bg': '#0a0a0a',
                         'dark-surface': '#1a1a1a',
                         'dark-surface-2': '#2a2a2a'
@@ -31,11 +33,14 @@
 </head>
 <body class="bg-dark-bg text-white overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-bg/90 backdrop-blur-md border-b border-quantum-blue/20 transition-all duration-300" id="navbar">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-bg/90 backdrop-blur-md border-b border-spark-cyan/20 transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold glow-text" data-text="Quantum Forge">
-                    Quantum Forge
+                <div class="flex items-center">
+                    <img src="attached_assets/1000204413-removebg-preview_1755485801059.png" alt="Spark Games" class="h-12 w-auto mr-3">
+                    <div class="text-2xl font-bold glow-text-spark" data-text="Spark Games">
+                        Spark Games
+                    </div>
                 </div>
                 
                 <!-- Desktop Menu -->
@@ -48,7 +53,7 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden text-quantum-blue" id="mobile-menu-btn">
+                <button class="md:hidden text-spark-yellow" id="mobile-menu-btn">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -68,17 +73,17 @@
 
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-quantum-purple/20 via-dark-bg to-quantum-blue/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-spark-purple/20 via-dark-bg to-spark-cyan/20"></div>
         <div class="absolute inset-0 bg-circuit-pattern opacity-10"></div>
         
         <div class="container mx-auto px-6 relative z-10 text-center">
             <div class="animate-slide-in">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 glow-text-hero" data-text="Crafting Worlds">
-                    Crafting Worlds,<br>
-                    <span class="text-quantum-blue">Building Legacies</span>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 glow-text-hero" data-text="Igniting Gaming">
+                    Igniting Gaming,<br>
+                    <span class="text-spark-cyan">Adventures Await</span>
                 </h1>
                 <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
-                    Where cutting-edge technology meets limitless imagination to create immersive gaming experiences
+                    Where creativity sparks innovation to deliver unforgettable gaming adventures across all platforms
                 </p>
                 <button class="glow-button text-lg px-8 py-4" onclick="scrollToSection('games')">
                     <i class="fas fa-gamepad mr-2"></i>
@@ -88,9 +93,9 @@
         </div>
 
         <!-- Floating Elements -->
-        <div class="absolute top-20 left-10 w-4 h-4 bg-quantum-blue rounded-full animate-float opacity-60"></div>
-        <div class="absolute top-40 right-20 w-6 h-6 bg-quantum-purple rounded-full animate-float opacity-40" style="animation-delay: 1s"></div>
-        <div class="absolute bottom-40 left-20 w-3 h-3 bg-quantum-pink rounded-full animate-float opacity-50" style="animation-delay: 2s"></div>
+        <div class="absolute top-20 left-10 w-4 h-4 bg-spark-yellow rounded-full animate-float opacity-60"></div>
+        <div class="absolute top-40 right-20 w-6 h-6 bg-spark-cyan rounded-full animate-float opacity-40" style="animation-delay: 1s"></div>
+        <div class="absolute bottom-40 left-20 w-3 h-3 bg-spark-orange rounded-full animate-float opacity-50" style="animation-delay: 2s"></div>
     </section>
 
     <!-- About Us Section -->
@@ -107,49 +112,49 @@
                 <div class="space-y-8">
                     <div class="glass-card p-8">
                         <div class="flex items-center mb-4">
-                            <i class="fas fa-bullseye text-quantum-blue text-3xl mr-4"></i>
+                            <i class="fas fa-bullseye text-spark-yellow text-3xl mr-4"></i>
                             <h3 class="text-2xl font-bold">Our Mission</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            To create extraordinary gaming experiences that transport players to new worlds, 
-                            challenge their minds, and forge lasting memories through innovative technology 
-                            and compelling storytelling.
+                            To spark creativity and ignite passion in gaming by delivering innovative, 
+                            engaging experiences that bring players together and create unforgettable 
+                            moments across all platforms and genres.
                         </p>
                     </div>
 
                     <div class="glass-card p-8">
                         <div class="flex items-center mb-4">
-                            <i class="fas fa-heart text-quantum-pink text-3xl mr-4"></i>
+                            <i class="fas fa-heart text-spark-orange text-3xl mr-4"></i>
                             <h3 class="text-2xl font-bold">Our Values</h3>
                         </div>
                         <ul class="text-gray-300 space-y-2">
-                            <li class="flex items-center"><i class="fas fa-check text-quantum-blue mr-2"></i> Innovation & Creativity</li>
-                            <li class="flex items-center"><i class="fas fa-check text-quantum-blue mr-2"></i> Player-Centric Design</li>
-                            <li class="flex items-center"><i class="fas fa-check text-quantum-blue mr-2"></i> Technical Excellence</li>
-                            <li class="flex items-center"><i class="fas fa-check text-quantum-blue mr-2"></i> Collaborative Spirit</li>
+                            <li class="flex items-center"><i class="fas fa-check text-spark-cyan mr-2"></i> Innovation & Creativity</li>
+                            <li class="flex items-center"><i class="fas fa-check text-spark-cyan mr-2"></i> Player-Centric Design</li>
+                            <li class="flex items-center"><i class="fas fa-check text-spark-cyan mr-2"></i> Technical Excellence</li>
+                            <li class="flex items-center"><i class="fas fa-check text-spark-cyan mr-2"></i> Collaborative Spirit</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="glass-card p-8">
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-history text-quantum-purple text-3xl mr-4"></i>
+                        <i class="fas fa-history text-spark-purple text-3xl mr-4"></i>
                         <h3 class="text-2xl font-bold">Our Story</h3>
                     </div>
                     <div class="text-gray-300 leading-relaxed space-y-4">
                         <p>
-                            Founded in 2018 by a team of passionate developers and artists, Quantum Forge Games 
-                            emerged from a shared vision to revolutionize the gaming industry through cutting-edge 
-                            technology and immersive storytelling.
+                            Founded in 2019 by a team of passionate developers and creative minds, Spark Games 
+                            ignited from a shared vision to create games that spark joy, creativity, and lasting 
+                            connections between players across the globe.
                         </p>
                         <p>
-                            From our humble beginnings as an indie studio to becoming a recognized force in the 
-                            gaming world, we've consistently pushed the envelope in game design, graphics, and 
-                            player experience across multiple platforms.
+                            From our energetic beginnings as an indie studio to becoming a bright light in the 
+                            gaming industry, we've consistently delivered innovative experiences that light up 
+                            players' worlds across mobile, PC, VR, and web platforms.
                         </p>
                         <p>
-                            Today, we continue to explore new frontiers in gaming, from virtual reality experiences 
-                            to innovative web-based games that reach players worldwide.
+                            Today, we continue to fuel the future of gaming with bold ideas, vibrant visuals, 
+                            and gameplay that sparks imagination and brings communities together worldwide.
                         </p>
                     </div>
                 </div>
@@ -219,12 +224,12 @@
                 <!-- Mobile Game Card -->
                 <div class="game-card mobile-card" data-category="mobile">
                     <div class="game-card-header">
-                        <i class="fas fa-mobile-alt text-3xl text-quantum-blue mb-4"></i>
+                        <i class="fas fa-mobile-alt text-3xl text-spark-cyan mb-4"></i>
                         <span class="game-badge mobile-badge">Mobile</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3">Cosmic Runner</h3>
+                    <h3 class="text-2xl font-bold mb-3">Spark Runner</h3>
                     <p class="text-gray-300 mb-6 text-sm leading-relaxed">
-                        An endless runner through cosmic landscapes with stunning visuals and addictive gameplay mechanics.
+                        An electrifying endless runner that sparks excitement with vibrant worlds and addictive gameplay mechanics.
                     </p>
                     <div class="game-stats mb-6">
                         <div class="flex justify-between text-sm text-gray-400">
@@ -240,12 +245,12 @@
                 <!-- PC Game Card -->
                 <div class="game-card pc-card" data-category="pc">
                     <div class="game-card-header">
-                        <i class="fas fa-desktop text-3xl text-quantum-purple mb-4"></i>
+                        <i class="fas fa-desktop text-3xl text-spark-purple mb-4"></i>
                         <span class="game-badge pc-badge">PC</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3">Quantum Realms</h3>
+                    <h3 class="text-2xl font-bold mb-3">Electric Realms</h3>
                     <p class="text-gray-300 mb-6 text-sm leading-relaxed">
-                        A massive multiplayer RPG set in parallel dimensions with cutting-edge graphics and deep storylines.
+                        A massive multiplayer RPG that ignites adventure across electric realms with stunning graphics and captivating stories.
                     </p>
                     <div class="game-stats mb-6">
                         <div class="flex justify-between text-sm text-gray-400">
@@ -261,12 +266,12 @@
                 <!-- VR Game Card -->
                 <div class="game-card vr-card" data-category="vr">
                     <div class="game-card-header">
-                        <i class="fas fa-vr-cardboard text-3xl text-quantum-pink mb-4"></i>
+                        <i class="fas fa-vr-cardboard text-3xl text-spark-orange mb-4"></i>
                         <span class="game-badge vr-badge">VR</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3">Neural Nexus</h3>
+                    <h3 class="text-2xl font-bold mb-3">Spark Nexus VR</h3>
                     <p class="text-gray-300 mb-6 text-sm leading-relaxed">
-                        Immersive virtual reality experience that blurs the line between digital and physical worlds.
+                        An electrifying virtual reality experience that sparks wonder and blurs reality with digital magic.
                     </p>
                     <div class="game-stats mb-6">
                         <div class="flex justify-between text-sm text-gray-400">

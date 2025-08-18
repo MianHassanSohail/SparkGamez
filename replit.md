@@ -1,8 +1,8 @@
-# Quantum Forge Games Website
+# Spark Games Website
 
 ## Overview
 
-This is a modern, interactive website for Quantum Forge Games, a game development company. The website serves as a corporate showcase featuring a futuristic cyberpunk aesthetic with glowing effects and smooth animations. Built as a single-page application with multiple sections including home, about, games showcase, careers, and contact information.
+This is a modern, interactive website for Spark Games, a game development company. The website serves as a corporate showcase featuring an energetic, vibrant aesthetic with electric yellow, cyan, and orange glowing effects and smooth animations. Built as a single-page application with multiple sections including home, about, games showcase, careers, and contact information.
 
 ## User Preferences
 
@@ -17,8 +17,8 @@ Preferred communication style: Simple, everyday language.
 
 **Styling Framework**
 - Tailwind CSS for utility-first styling via CDN
-- Custom CSS for specialized effects including glow animations, gradients, and cyberpunk visual elements
-- Extended Tailwind configuration with custom color palette (quantum-blue, quantum-purple, quantum-pink) and animations
+- Custom CSS for specialized effects including glow animations, gradients, and energetic visual elements
+- Extended Tailwind configuration with custom color palette (spark-yellow, spark-orange, spark-cyan, spark-teal, spark-purple) and animations
 - Font Awesome icons for UI elements
 
 **JavaScript Architecture**
@@ -28,8 +28,8 @@ Preferred communication style: Simple, everyday language.
 - Mobile menu functionality and navigation state management
 
 **Visual Design System**
-- Dark theme with neon accent colors creating a cyberpunk aesthetic
-- Glow effects and text shadows for futuristic appearance
+- Dark theme with vibrant electric accent colors creating an energetic gaming aesthetic
+- Glow effects and text shadows for electrifying appearance
 - Smooth animations and transitions for enhanced user experience
 - Gradient backgrounds and glowing buttons for interactive elements
 
