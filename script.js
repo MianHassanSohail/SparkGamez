@@ -557,7 +557,7 @@ function handleContactSubmit(event) {
     };
 
     // Send using EmailJS
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_CONTACT_TEMPLATE_ID', {
+    emailjs.send('Yservice_56y9afp', 'YOUR_CONTACT_TEMPLATE_ID', {
         from_name: data.name,
         from_email: data.email,
         subject: data.subject,
