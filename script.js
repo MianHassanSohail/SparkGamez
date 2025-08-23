@@ -556,14 +556,9 @@ function handleContactSubmit(event) {
         message: formData.get('message')
     };
 
-    // Send using EmailJS
-    emailjs.send('Yservice_56y9afp', 'YOUR_CONTACT_TEMPLATE_ID', {
-        from_name: data.name,
-        from_email: data.email,
-        subject: data.subject,
-        message: data.message,
-        to_email: 'sparkgamezstudio@gmail.com'
-    }).then(() => {
+    // Use your actual EmailJS service and template IDs
+    emailjs.send('service_56y9afp', 'template_contact', data)
+    .then(() => {
         messageDiv.className = 'text-center py-4 text-spark-cyan';
         messageDiv.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Message sent successfully! We\'ll get back to you soon.';
         messageDiv.classList.remove('hidden');
@@ -581,6 +576,8 @@ function handleContactSubmit(event) {
         submitBtn.disabled = false;
     });
 }
+
+
 
 
 
